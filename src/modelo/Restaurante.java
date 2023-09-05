@@ -1,7 +1,11 @@
 package modelo;
 
-import java.io.*;
+import java.io.BufferedReader;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 public class Restaurante {
     private Pedido pedidoEnCurso;
@@ -18,19 +22,8 @@ public class Restaurante {
         pedidoEnCurso = new Pedido(nombreCliente, direccionCliente);
     }
 
-    public void cerrarYGuardarPedido() {
-        if (pedidoEnCurso != null) {
-            try {
-                pedidoEnCurso.guardarFactura(new File("factura.txt"));
-                System.out.println("Pedido cerrado y factura guardada en 'factura.txt'");
-            } catch (IOException e) {
-                System.err.println("Error al guardar la factura.");
-                e.printStackTrace();
-            }
-            pedidoEnCurso = null; 
-        } else {
-            System.out.println("No hay pedido en curso para cerrar.");
-        }
+    public void cerrarYGuardarPedido(String nombreCliente, String direccionCliente) {
+    	this.pedidoEnCurso = new Pedido(nombreCliente, direccionCliente);
     }
 
     public Pedido getPedidoEnCurso() {
@@ -83,7 +76,7 @@ public class Restaurante {
                 if (partes.length == 2) {
                     String nombre = partes[0].trim();
                     int precioBase = Integer.parseInt(partes[1].trim());
-                    ProductoMenu productoMenu = new ProductoMenu(nombre, precioBase);
+                    ProductoMenu productoMenu = new ProductoMenu(nombre, precioBase, precioBase);
                     menuBase.add(productoMenu);
                 }
             }

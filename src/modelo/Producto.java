@@ -1,9 +1,9 @@
 package modelo;
 
 public interface Producto {
-    String getNombre();
-    int getPrecio();
-    String generarTextoFactura();
+    public String getNombre();
+    public int getPrecio();
+    public String generarTextoFactura();
 }
 
 

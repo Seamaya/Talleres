@@ -1,6 +1,6 @@
 package modelo;
 
-public class ProductoAjustado {
+public class ProductoAjustado implements Producto {
     private ProductoMenu base;
 
     public ProductoAjustado(ProductoMenu base) {

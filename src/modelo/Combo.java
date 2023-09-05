@@ -3,7 +3,7 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Combo {
+public class Combo implements Producto {
     private double descuento;
     private String nombreCombo;
     private List<Producto> itemsCombo;
@@ -29,18 +29,7 @@ public class Combo {
     }
 
     public String generarTextoFactura() {
-        StringBuilder factura = new StringBuilder();
-        factura.append("Combo: ").append(nombreCombo).append("\n");
-        factura.append("Productos en el Combo:\n");
-
-        for (Producto producto : itemsCombo) {
-            factura.append("  - ").append(producto.getNombre()).append(": $").append(producto.getPrecio()).append("\n");
-        }
-
-        factura.append("Descuento: ").append((int) (descuento * 100)).append("%\n");
-        factura.append("Precio con Descuento: $").append(getPrecio()).append("\n");
-
-        return factura.toString();
+    	return nombreCombo + " Tiene un costo total de: ";
     }
 
     public String getNombre() {
